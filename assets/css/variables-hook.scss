@@ -1,0 +1,10 @@
+/*
+  Appending custom SCSS variables will override the default ones in `_sass/addon/variables.scsss`
+*/
+
+$tab-count: {{ site.tabs | size | plus: 2 }}; // plus 1 for home tab
+
+$sidebar-width: 350px !default;        // the basic width
+$sidebar-width-small: 260px !default;  // screen width: >= 850px, <= 1199px (iPad landscape)
+$sidebar-width-large: 550px !default;  // screen width: >= 1650px
+
