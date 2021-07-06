@@ -8,7 +8,6 @@ order: 3
 
 (coming)
 
-
 ### Complexity Science
 
 (coming)
