@@ -5,46 +5,44 @@ theme: jekyll-theme-chirpy
 
 # Only if your site type is GitHub Project sites and doesn't have a custom domain,
 # change below value to '/projectname'.
-baseurl: ''
+baseurl: '/ap'
 
 # the HTML language tag › https://www.w3.org/International/questions/qa-choosing-language-tags
 lang: en-US
 
 # Change to your timezone › http://www.timezoneconverter.com/cgi-bin/findzone/findzone
-timezone: Asia/Shanghai
+timezone: Europe/amsterdam
 
 # jekyll-seo-tag settings › https://github.com/jekyll/jekyll-seo-tag/blob/master/docs/usage.md
 # --------------------------
-title: Chirpy                          # the main title
+title: Adrien Perello-y-Bestard                         # the main title
 
-tagline: A text-focused Jekyll theme   # it will display as the sub-title
+tagline: Cognitive Engineer   # it will display as the sub-title
 
 description: >-                        # used by seo meta and the atom feed
-  A minimal, portfolio, sidebar,
-  bootstrap Jekyll theme with responsive web design
-  and focuses on text presentation.
+  My personal website
 
 # fill in the protocol & hostname for your site, e.g., 'https://username.github.io'
-url: ''
+url: 'https://adrien-perello.github.io'
 
 github:
-  username: github_username             # change to your github username
+  username: adrien-perello             # change to your github username
 
 twitter:
-  username: twitter_username            # change to your twitter username
+  username: augmentd_Intell            # change to your twitter username
 
 social:
   # Change to your full name.
   # It will be displayed as the default author of the posts and the copyright owner in the Footer
-  name: your_full_name
-  email: example@doamin.com             # change to your email address
+  name: Adrien Perello-y-Bestard
+  #email: example@doamin.com             # change to your email address
   links:
     # The first element serves as the copyright owner's link
-    - https://twitter.com/username      # change to your twitter homepage
-    - https://github.com/username       # change to your github homepage
+    - https://github.com/adrien-perello       # change to your github homepage
+    - https://twitter.com/augmentd_Intell      # change to your twitter homepage
+    - https://www.linkedin.com/in/adrien-perello-y-bestard/
     # Uncomment below to add more social links
     # - https://www.facebook.com/username
-    # - https://www.linkedin.com/in/username
 
 google_site_verification: google_meta_tag_verification # change to your verification string
 # --------------------------
@@ -67,7 +65,7 @@ google_analytics:
 #     light  - Use the light color scheme
 #     dark   - Use the dark color scheme
 #
-theme_mode:   # [light|dark]
+theme_mode:   light
 
 # The CDN endpoint for images.
 # Notice that once it is assigned, the CDN url
@@ -77,7 +75,7 @@ theme_mode:   # [light|dark]
 img_cdn: ''
 
 # the avatar on sidebar, support local or CORS resources
-avatar: https://cdn.jsdelivr.net/gh/cotes2020/chirpy-images/commons/avatar.jpg
+avatar: /assets/img/about/profile.png
 
 # boolean type, the global switch for ToC in posts.
 toc: true
@@ -134,6 +132,8 @@ defaults:
       dynamic_title: true    # Hide title in mobile screens.
 
 sass:
+  load_paths:
+          - _sass
   style: compressed
 
 compress_html:
