@@ -153,7 +153,7 @@ a:hover { color: var(--accent); }
   min-height: clamp(36rem, calc(100svh - 4.5rem), 54rem);
   display: grid;
   grid-template-columns: minmax(0, 1.08fr) minmax(18rem, .92fr);
-  align-items: stretch;
+  align-items: end;
   gap: clamp(3rem, 8vw, 8rem);
   padding-block: clamp(5rem, 11vh, 8.5rem) clamp(4rem, 9vh, 7rem);
 }
@@ -180,8 +180,6 @@ a:hover { color: var(--accent); }
   line-height: .88;
 }
 
-.home-intro { align-self: end; }
-
 .affiliation {
   margin: 0;
   color: var(--muted);
@@ -189,23 +187,21 @@ a:hover { color: var(--accent); }
   line-height: 1.55;
 }
 
-.home-side {
-  min-width: 0;
+.home-identity {
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: var(--space-5);
+  align-items: center;
+  gap: 1.5rem;
 }
 
 .home-portrait {
-  width: 10.5rem;
+  flex: 0 0 7.25rem;
+  width: 7.25rem;
   aspect-ratio: 1;
-  align-self: flex-end;
   display: block;
   overflow: hidden;
-  border: 1px solid var(--line);
+  border-radius: 50%;
   background: var(--surface);
+  box-shadow: 0 0 0 1px var(--line);
 }
 
 .home-portrait img {
@@ -374,8 +370,8 @@ a:hover { color: var(--accent); }
   .site-nav a::after { bottom: -.35rem; }
   .home-hero { min-height: auto; grid-template-columns: 1fr; gap: 4rem; padding-block: 5.5rem 4.5rem; }
   .home-intro h1 { margin-top: 1rem; font-size: clamp(3.1rem, 15.5vw, 4.65rem); }
-  .home-side { gap: 3.5rem; }
-  .home-portrait { width: 8rem; align-self: flex-start; }
+  .home-identity { gap: 1.25rem; }
+  .home-portrait { flex-basis: 6rem; width: 6rem; }
   .home-statement > p:first-child { font-size: 1.25rem; }
   .route-list { grid-template-columns: 1fr; }
   .route-list a, .route-list a + a { min-height: 6.25rem; padding: 1.2rem 0; border-right: 0; border-bottom: 1px solid var(--line); }
