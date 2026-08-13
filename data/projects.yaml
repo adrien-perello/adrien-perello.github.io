@@ -1,0 +1,27 @@
+projects:
+  - id: insight
+    status: Current research
+    context: Horizon Europe · 2024–2027
+    title: INSIGHT — computational Safe-and-Sustainable-by-Design
+    summary: INSIGHT is developing an integrated computational framework for assessing the safety and sustainability of chemicals and materials across environmental, health, social and economic dimensions.
+    contribution: My work concerns life-cycle impact assessment integration and decision support under uncertainty, with a current emphasis on reviewable prospective-LCA reconstruction.
+    links:
+      - label: Project website
+        url: https://insight-project.org/
+      - label: EU project record
+        url: https://cordis.europa.eu/project/id/101137742
+      - label: Framework paper
+        url: https://doi.org/10.1016/j.csbj.2025.03.042
+  - id: futuram
+    status: Prior work
+    context: Horizon Europe · completed 2026
+    title: FutuRaM — critical raw materials
+    summary: FutuRaM developed methods, data and an Urban Mine Platform to assess the availability and recoverability of secondary and critical raw materials in European waste streams through 2050.
+    contribution: As a research assistant, I contributed to material-flow analysis work on hierarchical composition data. Public outputs include a European battery-recycling facilities dataset and the WEEE critical-raw-materials outlook.
+    links:
+      - label: Project website
+        url: https://futuram.eu/
+      - label: Battery facilities dataset
+        url: https://doi.org/10.5281/zenodo.13766892
+      - label: WEEE outlook report
+        url: https://doi.org/10.5281/zenodo.17941941

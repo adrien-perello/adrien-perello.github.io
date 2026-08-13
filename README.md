@@ -1,50 +1,51 @@
-# [Hugo Academic CV Theme](https://github.com/HugoBlox/theme-academic-cv)
+# Adrien Perello-y-Bestard — academic website
 
-[![Screenshot](./preview.png)](https://hugoblox.com/templates/)
+Source for [adrien-perello.github.io](https://adrien-perello.github.io/), a minimal public interface to Adrien's research, publications and selected projects.
 
-The Hugo **Academic Resumé Template** empowers you to easily create your job-winning online resumé, showcase your academic publications, and create online courses or knowledge bases to grow your audience.
+## Architecture
 
-[![Get Started](https://img.shields.io/badge/-Get%20started-ff4655?style=for-the-badge)](https://hugoblox.com/templates/)
-[![Discord](https://img.shields.io/discord/722225264733716590?style=for-the-badge)](https://discord.com/channels/722225264733716590/742892432458252370/742895548159492138)  
-[![Twitter Follow](https://img.shields.io/twitter/follow/GetResearchDev?label=Follow%20on%20Twitter)](https://twitter.com/GetResearchDev)
+The site uses Hugo without a theme or Hugo Modules. The previous Hugo Blox academic demo was removed because its block system, sample content and dependency graph added maintenance burden without helping the new design. Hugo remains as a small static generator because it provides reliable Markdown content, clean URLs and fast GitHub Pages builds without client-side JavaScript.
 
-️**Trusted by 250,000+ researchers, educators, and students.** Highly customizable via the integrated **no-code, Hugo Blox Builder**, making every site truly personalized ⭐⭐⭐⭐⭐
+The rendered site has no analytics, trackers, external fonts or runtime JavaScript. Light and dark palettes follow the visitor's operating-system preference.
 
-Easily write technical content with plain text Markdown, LaTeX math, diagrams, RMarkdown, or Jupyter, and import publications from BibTeX.
+## Local development
 
-[Check out the latest demo](https://academic-demo.netlify.app/) of what you'll get in less than 10 minutes, or [get inspired by our academics and research groups](https://hugoblox.com/creators/).
+Install Hugo `0.165.0`, then run:
 
-The integrated [**Hugo Blox Builder**](https://hugoblox.com) and CMS makes it easy to create a beautiful website for free. Edit your site in the CMS (or your favorite editor), generate it with [Hugo](https://github.com/gohugoio/hugo), and deploy with GitHub or Netlify. Customize anything on your site with widgets, light/dark themes, and language packs.
+```sh
+hugo server -D
+```
 
-- 👉 [**Get Started**](https://hugoblox.com/templates/)
-- 📚 [View the **documentation**](https://docs.hugoblox.com/)
-- 💬 [Chat with the **Hugo Blox Builder community**](https://discord.gg/z8wNYzb) or [**Hugo community**](https://discourse.gohugo.io)
-- 🐦 Twitter: [@GetResearchDev](https://twitter.com/GetResearchDev) [@GeorgeCushen](https://twitter.com/GeorgeCushen) [#MadeWithHugoBlox](https://twitter.com/search?q=%23MadeWithHugoBlox&src=typed_query)
-- ⬇️ **Automatically import your publications from BibTeX** with the [Hugo Academic CLI](https://github.com/GetRD/academic-file-converter)
-- 💡 [Suggest an improvement](https://github.com/HugoBlox/hugo-blox-builder/issues)
-- ⬆️ **Updating?** View the [Update Guide](https://docs.hugoblox.com/reference/update/) and [Release Notes](https://github.com/HugoBlox/hugo-blox-builder/releases)
+Open `http://localhost:1313/`.
 
-## We ask you, humbly, to support this open source movement
+## Production build and checks
 
-Today we ask you to defend the open source independence of the Hugo Blox Builder and themes 🐧
+```sh
+hugo --gc --minify
+python3 scripts/check_site.py public
+```
 
-We're an open source movement that depends on your support to stay online and thriving, but 99.9% of our creators don't give; they simply look the other way.
+The checker verifies generated pages, essential metadata, heading structure, image alternatives and internal links.
 
-### [❤️ Click here to become a GitHub Sponsor, unlocking awesome perks such as _exclusive academic templates and widgets_](https://github.com/sponsors/gcushen)
+## Content map
 
-<p align="center"><a href="https://hugoblox.com/templates/" target="_blank" rel="noopener"><img src="https://hugoblox.com/uploads/readmes/academic_logo_200px.png" alt="Hugo Academic Theme for Hugo Blox Builder"></a></p>
+- `content/` — Home, Research, Publications & Outputs, Projects and About copy.
+- `data/publications.yaml` — version-controlled publication, dataset and report metadata.
+- `data/projects.yaml` — evidence-backed project records.
+- `layouts/` — semantic page templates and metadata.
+- `assets/css/main.css` — the complete design system.
+- `archetypes/artifacts.md` — private-first scaffold for later evidence-bearing artifacts.
+- `docs/content-maintenance.md` — publication and evidence-status rules.
 
-## Demo image credits
+Research Notes and Artifacts are deliberately not visible until mature public material exists.
 
-- [Unsplash](https://unsplash.com)
+## Deployment
 
-## Latest news
+`.github/workflows/publish.yaml` builds `main` with the pinned Hugo version, validates `public/`, uploads the static artifact and deploys it through GitHub Pages. No generated site files are committed.
 
-<!--START_SECTION:news-->
+## Updating scholarly records
 
-- [Easily make an academic CV website to get more cites and grow your audience 🚀](https://hugoblox.com/blog/easily-make-academic-website/)
-- [What&#39;s new in v5.2?](https://hugoblox.com/blog/whats-new-in-v5.2/)
-- [What&#39;s new in v5.1?](https://hugoblox.com/blog/whats-new-in-v5.1/)
-- [Version 5.0 (February 2021)](https://hugoblox.com/blog/version-5.0-february-2021/)
-- [Version 5.0 Beta 3 (February 2021)](https://hugoblox.com/blog/version-5.0-beta-3-february-2021/)
-<!--END_SECTION:news-->
+Publication and output metadata must be verified against a DOI/publisher or repository record before editing `data/publications.yaml`. Profiles such as Google Scholar and ORCID are links and discovery aids, not runtime data sources.
+
+See [docs/content-maintenance.md](docs/content-maintenance.md) for status definitions and future artifact rules.
+

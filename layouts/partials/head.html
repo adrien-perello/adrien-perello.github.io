@@ -1,0 +1,30 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#f5f5f1" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#111310" media="(prefers-color-scheme: dark)">
+{{ $description := .Description | default site.Params.description }}
+{{ $pageTitle := cond .IsHome site.Title (printf "%s · %s" .Title site.Title) }}
+<title>{{ $pageTitle }}</title>
+<meta name="description" content="{{ $description }}">
+<meta name="author" content="{{ site.Params.author }}">
+<link rel="canonical" href="{{ .Permalink }}">
+<link rel="icon" href="{{ relURL "favicon.svg" }}" type="image/svg+xml">
+<link rel="manifest" href="{{ relURL "site.webmanifest" }}">
+<meta property="og:type" content="{{ if .IsHome }}profile{{ else }}website{{ end }}">
+<meta property="og:title" content="{{ $pageTitle }}">
+<meta property="og:description" content="{{ $description }}">
+<meta property="og:url" content="{{ .Permalink }}">
+<meta property="og:image" content="{{ absURL "og-image.png" }}">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:site_name" content="{{ site.Title }}">
+<meta name="twitter:card" content="summary_large_image">
+{{ $styles := resources.Get "css/main.css" | minify | fingerprint }}
+<link rel="stylesheet" href="{{ $styles.RelPermalink }}" integrity="{{ $styles.Data.Integrity }}">
+{{ if .IsHome }}
+  {{ $sameAs := slice site.Params.profiles.scholar site.Params.profiles.orcid site.Params.profiles.github site.Params.profiles.linkedin site.Params.profiles.leiden }}
+  {{ $person := dict "@context" "https://schema.org" "@type" "Person" "name" site.Params.author "url" site.BaseURL "jobTitle" site.Params.role "affiliation" (dict "@type" "Organization" "name" site.Params.affiliation "url" "https://www.universiteitleiden.nl/en/science/environmental-sciences") "email" (printf "mailto:%s" site.Params.email) "sameAs" $sameAs }}
+  <script type="application/ld+json">{{ $person | jsonify | safeJS }}</script>
+{{ end }}
+
