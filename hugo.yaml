@@ -1,0 +1,57 @@
+baseURL: https://adrien-perello.github.io/
+locale: en-GB
+title: Adrien Perello-y-Bestard
+copyright: © Adrien Perello-y-Bestard
+enableRobotsTXT: true
+cleanDestinationDir: true
+disableKinds:
+  - RSS
+  - taxonomy
+  - term
+
+menus:
+  main:
+    - name: Home
+      pageRef: /
+      weight: 10
+    - name: Research
+      pageRef: /research
+      weight: 20
+    - name: Publications
+      pageRef: /publications
+      weight: 30
+    - name: Projects
+      pageRef: /projects
+      weight: 40
+    - name: About
+      pageRef: /about
+      weight: 50
+
+params:
+  author: Adrien Perello-y-Bestard
+  role: PhD candidate in Industrial Ecology
+  affiliation: Institute of Environmental Sciences (CML), Leiden University
+  description: Research on trustworthy, reviewable prospective life-cycle assessment and Safe-and-Sustainable-by-Design decision support for chemicals and materials.
+  email: a.perello-y-bestard@cml.leidenuniv.nl
+  profiles:
+    scholar: https://scholar.google.com/citations?user=h3qEPesAAAAJ
+    orcid: https://orcid.org/0009-0006-1466-3536
+    github: https://github.com/adrien-perello
+    linkedin: https://www.linkedin.com/in/adrien-perello-y-bestard/
+    leiden: https://www.universiteitleiden.nl/en/staffmembers/adrien-perello-y-bestard
+  images:
+    - og-image.png
+
+markup:
+  goldmark:
+    renderer:
+      unsafe: false
+  highlight:
+    noClasses: false
+
+minify:
+  minifyOutput: true
+
+sitemap:
+  changeFreq: monthly
+  priority: 0.5

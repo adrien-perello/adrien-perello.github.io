@@ -1,0 +1,47 @@
+peer_reviewed:
+  - id: predictive-models-review
+    year: 2026
+    status: Peer reviewed
+    authors: Serra, A., et al.
+    title: Review on Predictive Models and Integration Strategies for Holistic Impact Assessment of Chemicals and Materials
+    journal: Environmental Science & Technology
+    volume: "60"
+    issue: "5"
+    pages: 3739–3766
+    doi: 10.1021/acs.est.5c04489
+    url: https://doi.org/10.1021/acs.est.5c04489
+    type: ScholarlyArticle
+  - id: insight-framework
+    year: 2025
+    status: Peer reviewed
+    authors: Serra, A., et al.
+    title: "INSIGHT: An integrated framework for safe and sustainable chemical and material assessment"
+    journal: Computational and Structural Biotechnology Journal
+    volume: "29"
+    pages: 125–137
+    doi: 10.1016/j.csbj.2025.03.042
+    url: https://doi.org/10.1016/j.csbj.2025.03.042
+    type: ScholarlyArticle
+
+outputs:
+  - id: futuram-weee-outlook
+    year: 2025
+    status: Archived / prior work
+    authors: Iattoni, G., et al.
+    title: 2050 Critical Raw Materials Outlook for Waste Electrical and Electronic Equipment in the European Union plus Iceland, Norway, Switzerland and United Kingdom
+    kind: Report
+    publisher: FutuRaM / Zenodo
+    doi: 10.5281/zenodo.17941941
+    url: https://doi.org/10.5281/zenodo.17941941
+    type: Report
+  - id: battery-recycling-facilities
+    year: 2024
+    status: Archived / prior work
+    authors: Perello-Y-Bestard, A.
+    title: European Lithium Battery Recycling Facilities 2010–2030
+    kind: Dataset, version 1
+    publisher: Zenodo
+    doi: 10.5281/zenodo.13766892
+    url: https://doi.org/10.5281/zenodo.13766892
+    type: Dataset
+

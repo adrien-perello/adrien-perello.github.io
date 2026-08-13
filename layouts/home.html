@@ -1,0 +1,32 @@
+{{ define "main" }}
+  <div class="home-shell">
+    <section class="home-hero" aria-labelledby="home-title">
+      <div class="home-intro">
+        <p class="eyebrow">PhD candidate · Industrial Ecology</p>
+        <h1 id="home-title">Adrien<br>Perello-y-Bestard</h1>
+        <p class="affiliation">Institute of Environmental Sciences (CML)<br>Leiden University</p>
+      </div>
+      <div class="home-statement">
+        <p>I study how incomplete and changing technical evidence can become trustworthy, reviewable prospective life-cycle models early enough to support Safe-and-Sustainable-by-Design decisions for chemicals and materials.</p>
+        <p class="statement-detail">Current work: LCA reconstruction, benchmark and evaluation methods for AI-supported workflows, and the human review needed to keep assumptions, alternatives and revisions inspectable.</p>
+      </div>
+    </section>
+
+    <nav class="route-list" aria-label="Explore the site">
+      <a href="{{ relURL "research/" }}"><span>01</span><strong>Research</strong><span aria-hidden="true">↗</span></a>
+      <a href="{{ relURL "publications/" }}"><span>02</span><strong>Publications & outputs</strong><span aria-hidden="true">↗</span></a>
+      <a href="{{ relURL "projects/" }}"><span>03</span><strong>Projects</strong><span aria-hidden="true">↗</span></a>
+    </nav>
+
+    {{ with index hugo.Data.publications.peer_reviewed 0 }}
+      <section class="featured-row" aria-labelledby="featured-title">
+        <p class="eyebrow" id="featured-title">Current publication</p>
+        <div>
+          <p class="featured-title">{{ .title }}</p>
+          <p class="featured-meta">{{ .journal }} · {{ .year }}</p>
+        </div>
+        <a class="text-link" href="{{ .url }}">DOI <span aria-hidden="true">↗</span></a>
+      </section>
+    {{ end }}
+  </div>
+{{ end }}

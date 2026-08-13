@@ -1,0 +1,56 @@
+{{ define "main" }}
+  <div class="page-shell records-page">
+    <header class="page-header">
+      <p class="eyebrow">{{ .Params.kicker }}</p>
+      <h1>{{ .Title }}</h1>
+      <p class="page-lead">{{ .Params.lead }}</p>
+    </header>
+
+    <section class="record-section" aria-labelledby="peer-reviewed-title">
+      <div class="section-heading">
+        <h2 id="peer-reviewed-title">Peer-reviewed papers</h2>
+        <p>{{ len hugo.Data.publications.peer_reviewed }} records</p>
+      </div>
+      <div class="record-list">
+        {{ range hugo.Data.publications.peer_reviewed }}
+          <article class="record" id="{{ .id }}">
+            <div class="record-meta"><span>{{ .year }}</span><span>{{ .status }}</span></div>
+            <div class="record-body">
+              <h3>{{ .title }}</h3>
+              <p>{{ .authors }} ({{ .year }}). <em>{{ .journal }}</em>, {{ .volume }}{{ with .issue }}({{ . }}){{ end }}, {{ .pages }}.</p>
+              <a class="text-link" href="{{ .url }}">{{ .doi }} <span aria-hidden="true">↗</span></a>
+            </div>
+          </article>
+        {{ end }}
+      </div>
+    </section>
+
+    <section class="record-section" aria-labelledby="outputs-title">
+      <div class="section-heading">
+        <h2 id="outputs-title">Datasets & reports</h2>
+        <p>Selected prior work</p>
+      </div>
+      <div class="record-list">
+        {{ range hugo.Data.publications.outputs }}
+          <article class="record" id="{{ .id }}">
+            <div class="record-meta"><span>{{ .year }}</span><span>{{ .status }}</span></div>
+            <div class="record-body">
+              <h3>{{ .title }}</h3>
+              <p>{{ .authors }} ({{ .year }}). {{ .kind }}. <em>{{ .publisher }}</em>.</p>
+              <a class="text-link" href="{{ .url }}">{{ .doi }} <span aria-hidden="true">↗</span></a>
+            </div>
+          </article>
+        {{ end }}
+      </div>
+    </section>
+
+    <p class="records-note">Publication metadata is maintained in this repository. <a href="{{ site.Params.profiles.scholar }}">Google Scholar</a> and <a href="{{ site.Params.profiles.orcid }}">ORCID</a> provide additional indexing.</p>
+
+    {{ $items := slice }}
+    {{ range (collections.Append hugo.Data.publications.outputs hugo.Data.publications.peer_reviewed) }}
+      {{ $item := dict "@type" .type "name" .title "datePublished" (printf "%v" .year) "identifier" (printf "https://doi.org/%s" .doi) "url" .url "contributor" (dict "@type" "Person" "name" site.Params.author) }}
+      {{ $items = $items | append $item }}
+    {{ end }}
+    <script type="application/ld+json">{{ dict "@context" "https://schema.org" "@type" "ItemList" "itemListElement" $items | jsonify | safeJS }}</script>
+  </div>
+{{ end }}

@@ -1,0 +1,12 @@
+{
+  "name": "Adrien Perello-y-Bestard",
+  "short_name": "Adrien Perello",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f5f5f1",
+  "theme_color": "#f5f5f1",
+  "icons": [
+    { "src": "/favicon.svg", "sizes": "any", "type": "image/svg+xml" }
+  ]
+}
+
