@@ -1,31 +1,10 @@
 {{ define "main" }}
-  {{ $portrait := resources.Get "images/perello-adrien-large.jpg" }}
-  {{ $portrait160 := $portrait.Fill "160x160 Top webp q82" }}
-  {{ $portrait240 := $portrait.Fill "240x240 Top webp q82" }}
-  {{ $portrait320 := $portrait.Fill "320x320 Top webp q82" }}
-  {{ $portraitFallback := $portrait.Fill "240x240 Top jpg q85" }}
   <div class="home-shell">
     <section class="home-hero" aria-labelledby="home-title">
       <div class="home-intro">
         <p class="eyebrow">PhD candidate · Industrial Ecology</p>
         <h1 id="home-title">Adrien<br>Perello-y-Bestard</h1>
-        <div class="home-identity">
-          <picture class="home-portrait">
-            <source
-              type="image/webp"
-              srcset="{{ $portrait160.RelPermalink }} 160w, {{ $portrait240.RelPermalink }} 240w, {{ $portrait320.RelPermalink }} 320w"
-              sizes="(max-width: 760px) 6rem, 7.25rem">
-            <img
-              src="{{ $portraitFallback.RelPermalink }}"
-              width="{{ $portraitFallback.Width }}"
-              height="{{ $portraitFallback.Height }}"
-              alt="Portrait of Adrien Perello-y-Bestard"
-              loading="eager"
-              fetchpriority="high"
-              decoding="async">
-          </picture>
-          <p class="affiliation">Institute of Environmental Sciences (CML)<br>Leiden University</p>
-        </div>
+        <p class="affiliation">Institute of Environmental Sciences (CML)<br>Leiden University</p>
       </div>
       <div class="home-statement">
         <p>I study how incomplete and changing technical evidence can become trustworthy, reviewable prospective life-cycle models early enough to support Safe-and-Sustainable-by-Design decisions for chemicals and materials.</p>

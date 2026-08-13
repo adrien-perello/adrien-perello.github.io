@@ -1,0 +1,31 @@
+{{ define "main" }}
+  {{ $portrait := resources.Get "images/perello-adrien-large.jpg" }}
+  {{ $portrait160 := $portrait.Resize "160x webp q82" }}
+  {{ $portrait240 := $portrait.Resize "240x webp q82" }}
+  {{ $portrait320 := $portrait.Resize "320x webp q82" }}
+  {{ $portraitFallback := $portrait.Resize "240x jpg q85" }}
+  <article class="page-shell">
+    <header class="page-header about-header">
+      {{ with .Params.kicker }}<p class="eyebrow">{{ . }}</p>{{ end }}
+      <h1>{{ .Title }}</h1>
+      {{ with .Params.lead }}<p class="page-lead">{{ . }}</p>{{ end }}
+      <picture class="about-portrait">
+        <source
+          type="image/webp"
+          srcset="{{ $portrait160.RelPermalink }} 160w, {{ $portrait240.RelPermalink }} 240w, {{ $portrait320.RelPermalink }} 320w"
+          sizes="(max-width: 760px) 6.5rem, 10rem">
+        <img
+          src="{{ $portraitFallback.RelPermalink }}"
+          width="{{ $portraitFallback.Width }}"
+          height="{{ $portraitFallback.Height }}"
+          alt="Portrait of Adrien Perello-y-Bestard"
+          loading="eager"
+          fetchpriority="high"
+          decoding="async">
+      </picture>
+    </header>
+    <div class="prose">
+      {{ .Content }}
+    </div>
+  </article>
+{{ end }}

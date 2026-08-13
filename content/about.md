@@ -1,5 +1,6 @@
 ---
 title: About
+type: about
 kicker: Profile & contact
 lead: PhD candidate in Industrial Ecology at Leiden University's Institute of Environmental Sciences (CML).
 description: Biography, education, affiliation and contact details for Adrien Perello-y-Bestard.
@@ -25,4 +26,3 @@ Einsteinweg 2, 2333 CC Leiden, the Netherlands
 - [ORCID](https://orcid.org/0009-0006-1466-3536)
 - [GitHub](https://github.com/adrien-perello)
 - [LinkedIn](https://www.linkedin.com/in/adrien-perello-y-bestard/)
-
