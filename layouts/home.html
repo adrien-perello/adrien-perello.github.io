@@ -1,35 +1,35 @@
 {{ define "main" }}
-  {{ $portrait := resources.Get "images/perello-adrien-cml.jpg" }}
-  {{ $portrait320 := $portrait.Resize "320x webp q82" }}
-  {{ $portrait480 := $portrait.Resize "480x webp q82" }}
-  {{ $portrait640 := $portrait.Resize "640x webp q82" }}
-  {{ $portraitFallback := $portrait.Resize "480x jpg q85" }}
+  {{ $portrait := resources.Get "images/perello-adrien-large.jpg" }}
+  {{ $portrait160 := $portrait.Fill "160x160 Top webp q82" }}
+  {{ $portrait240 := $portrait.Fill "240x240 Top webp q82" }}
+  {{ $portrait320 := $portrait.Fill "320x320 Top webp q82" }}
+  {{ $portraitFallback := $portrait.Fill "240x240 Top jpg q85" }}
   <div class="home-shell">
     <section class="home-hero" aria-labelledby="home-title">
       <div class="home-intro">
         <p class="eyebrow">PhD candidate · Industrial Ecology</p>
         <h1 id="home-title">Adrien<br>Perello-y-Bestard</h1>
-        <p class="affiliation">Institute of Environmental Sciences (CML)<br>Leiden University</p>
-      </div>
-      <div class="home-side">
-        <picture class="home-portrait">
-          <source
-            type="image/webp"
-            srcset="{{ $portrait320.RelPermalink }} 320w, {{ $portrait480.RelPermalink }} 480w, {{ $portrait640.RelPermalink }} 640w"
-            sizes="(max-width: 760px) 8rem, 10.5rem">
-          <img
-            src="{{ $portraitFallback.RelPermalink }}"
-            width="{{ $portraitFallback.Width }}"
-            height="{{ $portraitFallback.Height }}"
-            alt="Portrait of Adrien Perello-y-Bestard"
-            loading="eager"
-            fetchpriority="high"
-            decoding="async">
-        </picture>
-        <div class="home-statement">
-          <p>I study how incomplete and changing technical evidence can become trustworthy, reviewable prospective life-cycle models early enough to support Safe-and-Sustainable-by-Design decisions for chemicals and materials.</p>
-          <p class="statement-detail">Current work: LCA reconstruction, benchmark and evaluation methods for AI-supported workflows, and the human review needed to keep assumptions, alternatives and revisions inspectable.</p>
+        <div class="home-identity">
+          <picture class="home-portrait">
+            <source
+              type="image/webp"
+              srcset="{{ $portrait160.RelPermalink }} 160w, {{ $portrait240.RelPermalink }} 240w, {{ $portrait320.RelPermalink }} 320w"
+              sizes="(max-width: 760px) 6rem, 7.25rem">
+            <img
+              src="{{ $portraitFallback.RelPermalink }}"
+              width="{{ $portraitFallback.Width }}"
+              height="{{ $portraitFallback.Height }}"
+              alt="Portrait of Adrien Perello-y-Bestard"
+              loading="eager"
+              fetchpriority="high"
+              decoding="async">
+          </picture>
+          <p class="affiliation">Institute of Environmental Sciences (CML)<br>Leiden University</p>
         </div>
+      </div>
+      <div class="home-statement">
+        <p>I study how incomplete and changing technical evidence can become trustworthy, reviewable prospective life-cycle models early enough to support Safe-and-Sustainable-by-Design decisions for chemicals and materials.</p>
+        <p class="statement-detail">Current work: LCA reconstruction, benchmark and evaluation methods for AI-supported workflows, and the human review needed to keep assumptions, alternatives and revisions inspectable.</p>
       </div>
     </section>
 
