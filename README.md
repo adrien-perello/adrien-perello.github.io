@@ -34,6 +34,7 @@ The checker verifies generated pages, essential metadata, heading structure, ima
 - `data/projects.yaml` — evidence-backed project records.
 - `layouts/` — semantic page templates and metadata.
 - `assets/css/main.css` — the complete design system.
+- `assets/images/` — source images processed into responsive formats by Hugo.
 - `archetypes/artifacts.md` — private-first scaffold for later evidence-bearing artifacts.
 - `docs/content-maintenance.md` — publication and evidence-status rules.
 
@@ -48,4 +49,3 @@ Research Notes and Artifacts are deliberately not visible until mature public ma
 Publication and output metadata must be verified against a DOI/publisher or repository record before editing `data/publications.yaml`. Profiles such as Google Scholar and ORCID are links and discovery aids, not runtime data sources.
 
 See [docs/content-maintenance.md](docs/content-maintenance.md) for status definitions and future artifact rules.
-
