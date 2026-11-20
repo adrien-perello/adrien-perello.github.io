@@ -1,4 +1,6 @@
 {{ define "main" }}
+  {{ $pubs := hugo.Data.publications }}
+  {{ $projects := hugo.Data.projects.projects }}
   <div class="home-shell">
     <section class="home-hero" aria-labelledby="home-title">
       <div class="home-intro">
@@ -9,18 +11,37 @@
       <div class="home-statement">
         <p>I study how incomplete and changing technical evidence can become trustworthy, reviewable prospective life-cycle models early enough to support Safe-and-Sustainable-by-Design decisions for chemicals and materials.</p>
         <p class="statement-detail">Current work: LCA reconstruction, benchmark and evaluation methods for AI-supported workflows, and the human review needed to keep assumptions, alternatives and revisions inspectable.</p>
+        <p class="home-actions"><a class="cta-link" href="{{ relURL "about/#contact" }}">Get in touch <span aria-hidden="true">→</span></a></p>
       </div>
     </section>
 
     <nav class="route-list" aria-label="Explore the site">
-      <a href="{{ relURL "research/" }}"><span>01</span><strong>Research</strong><span aria-hidden="true">↗</span></a>
-      <a href="{{ relURL "publications/" }}"><span>02</span><strong>Publications & outputs</strong><span aria-hidden="true">↗</span></a>
-      <a href="{{ relURL "projects/" }}"><span>03</span><strong>Projects</strong><span aria-hidden="true">↗</span></a>
+      <a href="{{ relURL "research/" }}">
+        <span class="route-index">01</span>
+        <strong>Research</strong>
+        <span class="route-arrow" aria-hidden="true">→</span>
+        <span class="route-desc">The problem, the approach and open questions for collaboration.</span>
+      </a>
+      <a href="{{ relURL "publications/" }}">
+        <span class="route-index">02</span>
+        <strong>Publications & outputs</strong>
+        <span class="route-arrow" aria-hidden="true">→</span>
+        {{ $papers := len $pubs.peer_reviewed }}
+        {{ $datasets := len (where $pubs.outputs "type" "Dataset") }}
+        {{ $reports := len (where $pubs.outputs "type" "Report") }}
+        <span class="route-desc">{{ $papers }} peer-reviewed {{ cond (eq $papers 1) "paper" "papers" }}{{ with $datasets }}, {{ . }} {{ cond (eq . 1) "dataset" "datasets" }}{{ end }}{{ with $reports }} and {{ . }} {{ cond (eq . 1) "report" "reports" }}{{ end }}.</span>
+      </a>
+      <a href="{{ relURL "projects/" }}">
+        <span class="route-index">03</span>
+        <strong>Projects</strong>
+        <span class="route-arrow" aria-hidden="true">→</span>
+        <span class="route-desc">{{ range $i, $p := $projects }}{{ if $i }}{{ if eq (add $i 1) (len $projects) }} and {{ else }}, {{ end }}{{ end }}{{ index (split $p.title " — ") 0 }} ({{ lower $p.status }}){{ end }}.</span>
+      </a>
     </nav>
 
-    {{ with index hugo.Data.publications.peer_reviewed 0 }}
+    {{ with index (sort $pubs.peer_reviewed "year" "desc") 0 }}
       <section class="featured-row" aria-labelledby="featured-title">
-        <p class="eyebrow" id="featured-title">Current publication</p>
+        <p class="eyebrow" id="featured-title">Latest publication</p>
         <div>
           <p class="featured-title">{{ .title }}</p>
           <p class="featured-meta">{{ .journal }} · {{ .year }}</p>

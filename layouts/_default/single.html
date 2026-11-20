@@ -5,9 +5,21 @@
       <h1>{{ .Title }}</h1>
       {{ with .Params.lead }}<p class="page-lead">{{ . }}</p>{{ end }}
     </header>
-    <div class="prose">
-      {{ .Content }}
-    </div>
+    {{ if and .Params.toc (gt (len .Fragments.Headings) 0) }}
+      <div class="page-body has-toc">
+        <nav class="toc" aria-labelledby="toc-title">
+          <p class="eyebrow" id="toc-title">On this page</p>
+          {{ .TableOfContents }}
+        </nav>
+        <div class="prose">
+          {{ .Content }}
+        </div>
+      </div>
+    {{ else }}
+      <div class="prose">
+        {{ .Content }}
+      </div>
+    {{ end }}
   </article>
 {{ end }}
 
