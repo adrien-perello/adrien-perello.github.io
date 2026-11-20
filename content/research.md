@@ -1,5 +1,6 @@
 ---
 title: Research
+toc: true
 kicker: Scientific programme
 lead: Trustworthy prospective life-cycle assessment while the evidence, the technology and the decision are still changing.
 description: Adrien Perello-y-Bestard's research programme on reviewable LCA reconstruction, benchmark design and Safe-and-Sustainable-by-Design decision support.
